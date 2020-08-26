@@ -1,0 +1,21 @@
+type Trilha {
+  id: ID!
+  nome: String!
+  valor: Float!
+}
+
+input TrilhaInput {
+  id: ID
+  nome: String!
+  valor: Float!
+}
+
+extend type Query {
+  trilha(id: ID!): Trilha
+  trilhas: [Trilha]!
+}
+
+extend type Mutation {
+  salvarTrilha(trilha: TrilhaInput!): Trilha!
+  deletarTrilha(id: ID!): Boolean!
+}

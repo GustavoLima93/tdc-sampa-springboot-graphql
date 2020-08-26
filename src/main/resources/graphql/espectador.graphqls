@@ -1,0 +1,22 @@
+type Espectador {
+  id: ID!
+  nome: String!
+  email: String!
+  compras: [Compra]!
+}
+
+input EspectadorInput {
+  id: ID
+  nome: String!
+  email: String!
+}
+
+extend type Query {
+  espectador(id: ID!): Espectador
+  espectadores: [Espectador]!
+}
+
+extend type Mutation {
+  salvaEspectador(espectador: EspectadorInput!): Espectador!
+  deletarEspectador(id: ID): Boolean!
+}
